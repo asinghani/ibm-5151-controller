@@ -1,0 +1,7 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "RP2040")(type "KiCad")(uri "${KIPRJMOD}/parts/RP2040")(options "")(descr ""))
+  (lib (name "ECS-120-20-3X-TR")(type "KiCad")(uri "${KIPRJMOD}/parts/ECS-120-20-3X-TR")(options "")(descr ""))
+  (lib (name "Raspberry_Pi_Zero_W")(type "KiCad")(uri "${KIPRJMOD}/parts/Raspberry_Pi_Zero_W")(options "")(descr ""))
+  (lib (name "careers")(type "KiCad")(uri "${KIPRJMOD}/parts/careers")(options "")(descr ""))
+)

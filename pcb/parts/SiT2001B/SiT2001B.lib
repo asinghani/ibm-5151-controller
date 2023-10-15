@@ -1,0 +1,46 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# JST-Battery
+#
+DEF JST-Battery J 0 40 Y N 1 F N
+F0 "J" 0 -200 50 H V C CNN
+F1 "JST-Battery" 0 -300 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+T 0 -150 -150 50 0 0 0 GND Normal 0 C C
+T 0 -150 50 50 0 0 0 VCC Normal 0 C C
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -150 1 1 10 f
+X +V 1 -250 0 197 R 0 50 1 1 W
+X GND 2 -250 -100 197 R 0 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# SiT2001B
+#
+DEF SiT2001B X 0 10 Y Y 1 F N
+F0 "X" -200 250 50 H V L CNN
+F1 "SiT2001B" 50 -250 50 H V L CNN
+F2 "Oscillator:Oscillator_SeikoEpson_SG-8002DC" 450 -350 50 H I C CNN
+F3 "" -100 0 50 H I C CNN
+ALIAS SG-531
+$FPLIST
+ Oscillator*SeikoEpson*SG?8002DC*
+$ENDFPLIST
+DRAW
+S -200 200 200 -200 0 1 10 f
+P 9 0 1 0 -75 -25 -50 -25 -50 25 -25 25 -25 -25 0 -25 0 25 25 25 25 -25 N
+X GND 1 0 -300 100 U 50 50 1 1 W
+X OE 3 -300 0 100 R 50 50 1 1 I
+X Vcc 4 0 300 100 D 50 50 1 1 W
+X OUT 5 300 0 100 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library
