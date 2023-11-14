@@ -23,6 +23,6 @@ object Timings {
     val WIDTH_CHARS         = WIDTH_PX / FONT_WIDTH
     val HEIGHT_CHARS        = HEIGHT_PX / FONT_HEIGHT
 
-    val CURSOR_BLINK_FRAMES = 30
+    val CURSOR_BLINK_FRAMES = 14
     val BELL_CTR_CLKS       = 1300000
 }
