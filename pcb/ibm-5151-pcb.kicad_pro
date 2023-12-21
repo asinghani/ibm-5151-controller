@@ -448,7 +448,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "3d/ibm-5151-pcb.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

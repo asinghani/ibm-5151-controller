@@ -1,0 +1,10 @@
+set_io CLOCK_12 35
+set_io rst_in 37
+
+set_io urx 46
+set_io utx 45
+
+set_io hsync 10
+set_io vsync 9
+set_io data 11
+set_io intensity 12
