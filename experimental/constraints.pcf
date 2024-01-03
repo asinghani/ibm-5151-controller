@@ -1,0 +1,16 @@
+set_io CLOCK_12 35
+set_io btn_rst 23
+
+set_io urx 6
+set_io utx 9
+
+set_io btn0 25
+set_io btn1 34
+set_io btn2 43
+
+set_io hsync 45
+set_io vsync 3
+set_io data 48
+set_io intensity 4
+
+set_io led 40

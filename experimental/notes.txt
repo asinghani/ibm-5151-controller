@@ -1,0 +1,147 @@
+1 - black - GND
+2 - brown - GND
+3 - NC
+4 - NC
+5 - NC
+6 - green - Intensity
+7 - blue  - pixel
+8 - purple - hsync
+9 - gray - vsync
+
+
+
+https://vt100.net/docs/vt100-ug/chapter3.html
+
+vt100 keyboard very straightforward
+TBD how to implement device status etc
+
+create virtual loopback: socat -d -d pty,raw,echo=0 pty,raw,echo=0
+launch login tty: sudo /sbin/agetty pts/17 vt100
+
+80x24 is the size of a VT100 terminal. 80x25 is the size of an IBM PC terminal.
+
+
+
+https://github.com/nandland/spi-slave/blob/master/Verilog/source/SPI_Slave.v
+
+
+
+
+vt100 impl
+fpga gateware
+pi 2w fast boot
+
+
+
+
+vt100 resolution: 80x24
+monitor resolution: 80x25
+
+
+80*25 = 2000
+80*25*16 = 32Kbits
+
+256 x 8 = 2048 chars
+
+
+up5k:
+- (4x) 16K x 16 bits SPRAM single-port
+- (30x) 256 x 16 bits Block RAM simplified dual-port
+
+
+- components
+	- input controller unit
+		- uart rx
+		- text buffer
+
+
+	- banked display RAM
+		- 2x SPRAM + 2x cursor register
+		- SPRAM wrapper with blackbox
+		- handshaking on both sides
+
+	- display unit
+		- timing sequencerl
+		- character sequencer
+		- font ROM
+		- test pattern modes
+		- interface to display RAM
+
+
+- text buffer
+	- maintain x/y index
+	- wrap around both x and y
+	- control chars for:
+		- blank screen
+		- newline'\
+		- enable/disable cursor
+		- enable/disable bright(?)
+		- enable/disable underline(?)
+		- enable/disable reverse color(?)
+		- enable/disable blink(?)
+		- enable/disable redraw
+
+
+bright
+underline
+reverse
+
+
+cursor register:
+- cursor X
+- cursor Y
+- cursor blink?
+- cursor mode:
+	- hidden
+	- box
+	- invert box
+	- underscore
+
+
+
+2-way banked SPRAM for characters
+
+
+input controller writes to SPRAM
+handshake between input controller and display unit to switch banks
+	- input controller "ready to switch bank"
+	- display unit "end of frame period"
+
+
+for prototype: display unit copies uart buffer into SPRAM
+
+
+
+884*16 = 14144 clks during vsync period
+
+
+
+
+50hz display update rate
+
+
+(16312000 MHz)/(326196 clks per frame)
+	= 50.00674441 Hz update rate
+
+clocking unit:
+
+884 cols
+- 17 cols left blanking
+- 720 cols video (9 cols / character)
+- 12 cols right blanking
+- 135 cols hsync
+
+369 rows
+- 350 rows video (14 rows / character) 
+- 16 rows vsync
+- 3 rows blanking
+
+
+
+
+0-719 data
+720-723
+
+326196
+
+
