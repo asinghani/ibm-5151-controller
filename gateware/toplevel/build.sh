@@ -1,3 +1,6 @@
+set -Eeuo pipefail
+set -o xtrace
+
 # Make a build folder
 rm -r build || true
 mkdir build

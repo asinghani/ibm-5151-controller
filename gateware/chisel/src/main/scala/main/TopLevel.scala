@@ -17,10 +17,11 @@ class TopLevel extends Module {
 
     val display_controller = Module(new DisplayController)
 
-    //val memory = Module(new TestPatternMemory)
-    val memory = Module(new BasicSerialMemory)
-    memory.io.serial_in := io.serial_in
-    io.bell := memory.io.bell
+    val memory = Module(new TestPatternMemory)
+    //val memory = Module(new BasicSerialMemory)
+    //memory.io.serial_in := io.serial_in
+    //io.bell := memory.io.bell
+    io.bell := false.B
 
     display_controller.io.tp_mode := io.tp_mode
     io.mda := display_controller.io.mda

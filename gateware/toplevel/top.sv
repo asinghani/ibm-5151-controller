@@ -70,19 +70,14 @@ module ice40_top (
             .i_clk(pix_clk)
         );
         
-        always_ff @(posedge pix_clk) hsync <= !hsync;
-        assign vsync = rst;
-        assign data = 0;
-        assign intensity = pll_lock;
-
         TopLevel top (
             .clock(pix_clk),
             .reset(rst),
-            .io_tp_mode(3'b0), //{~btn2, ~btn1, ~btn0}),
-            .io_mda_hsync(),//hsync),
-            .io_mda_vsync(),//vsync),
-            .io_mda_pixel(),//data),
-            .io_mda_intens(),//intensity),
+            .io_tp_mode(3'd0),
+            .io_mda_hsync(hsync),
+            .io_mda_vsync(vsync),
+            .io_mda_pixel(data),
+            .io_mda_intens(intensity),
             .io_bell(),
             .io_serial_in_valid(uart_valid),
             .io_serial_in_bits(uart_data)
